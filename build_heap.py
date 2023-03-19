@@ -26,28 +26,25 @@ def heapify(data, i, swaps):
 
 
 def main():
-    # input mode (keyboard or file)
     mode = input("Enter input mode (I for keyboard input, F for file input): ")
 
-    # input from keyboard
-    if mode == 'I':
+    if mode == "I":
         n = int(input())
         data = list(map(int, input().split()))
 
-        # checks if length of data is the same as the said length
         assert len(data) == n
 
-    # input from file
-    elif mode == 'F':
+    elif mode == "F":
         filename = input("Enter input file name: ")
         with open(filename, 'r') as f:
             n = int(f.readline().strip())
             data = list(map(int, f.readline().strip().split()))
 
+            # checks if length of data is the same as the said length
             assert len(data) == n
 
     else:
-        print("Invalid input mode. Please enter either 'I' or 'F'.")
+        print("Invalid input!")
         return
 
     swaps = build_heap(data)
