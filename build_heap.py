@@ -27,7 +27,7 @@ def main():
     # input from keyboard if mode is not specified or invalid mode is entered
     if "f" in mode.lower():
         filename = input("Enter input file name: ")
-        with open(filename, 'r') as f:
+        with open(filename.split(), 'r') as f:
             n = int(f.readline().strip())
             data = list(map(int, f.readline().strip().split()))
 
