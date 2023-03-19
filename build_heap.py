@@ -44,7 +44,13 @@ def main():
             assert len(data) == n
 
     else:
-        print("Invalid input!")
+        filename = input("Enter input file name: ")
+        with open(filename, 'r') as f:
+            n = int(f.readline().strip())
+            data = list(map(int, f.readline().strip().split()))
+
+            # checks if length of data is the same as the said length
+            assert len(data) == n
         return
 
     swaps = build_heap(data)
