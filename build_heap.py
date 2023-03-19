@@ -1,6 +1,3 @@
-# python3
-
-
 def build_heap(data):
     n = len(data)
     swaps = []
@@ -23,18 +20,20 @@ def heapify(data, i, swaps):
         swaps = heapify(data, min_idx, swaps)
     return swaps
 
-
-
 def main():
+    # input mode (keyboard or file)
     mode = input("Enter input mode (I for keyboard input, F for file input): ")
 
-    if mode == "i":
+    # input from keyboard if mode is not specified or invalid mode is entered
+    if mode != "F":
         n = int(input())
         data = list(map(int, input().split()))
 
+        # checks if length of data is the same as the said length
         assert len(data) == n
 
-    elif mode == "f":
+    # input from file
+    else:
         filename = input("Enter input file name: ")
         with open(filename, 'r') as f:
             n = int(f.readline().strip())
@@ -43,12 +42,11 @@ def main():
             # checks if length of data is the same as the said length
             assert len(data) == n
 
-    else:
-        print("Invalid input!")
-        return
-
+    # calls function to assess the data
+    # and give back all swaps
     swaps = build_heap(data)
 
+    # checks if the heap property is satisfied
     for i in range(n//2):
         if 2*i+1 < n and data[i] > data[2*i+1]:
             print("ERROR: heap property not satisfied")
@@ -58,12 +56,13 @@ def main():
             print("ERROR: heap property not satisfied")
             return
 
+    # output how many swaps were made,
+    # this number should be less than 4n (less than 4*len(data))
     print(len(swaps))
 
+    # output all swaps
     for i, j in swaps:
         print(i, j)
-
-
 
 if __name__ == "__main__":
     main()
