@@ -25,15 +25,7 @@ def main():
     mode = input("Enter input mode (I for keyboard input, F for file input): ")
 
     # input from keyboard if mode is not specified or invalid mode is entered
-    if mode != "F":
-        n = int(input())
-        data = list(map(int, input().split()))
-
-        # checks if length of data is the same as the said length
-        assert len(data) == n
-
-    # input from file
-    else:
+    if "f" in mode.lower():
         filename = input("Enter input file name: ")
         with open(filename, 'r') as f:
             n = int(f.readline().strip())
@@ -41,6 +33,14 @@ def main():
 
             # checks if length of data is the same as the said length
             assert len(data) == n
+
+    # input from keyboard
+    else:
+        n = int(input())
+        data = list(map(int, input().split()))
+
+        # checks if length of data is the same as the said length
+        assert len(data) == n
 
     # calls function to assess the data
     # and give back all swaps
