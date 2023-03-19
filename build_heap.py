@@ -30,7 +30,7 @@ def main():
     mode = input("Enter input mode (I for keyboard input, F for file input): ")
 
     # input from keyboard
-    if mode == "I":
+    if mode == 'I':
         n = int(input())
         data = list(map(int, input().split()))
 
@@ -38,7 +38,7 @@ def main():
         assert len(data) == n
 
     # input from file
-    elif mode == "F":
+    elif mode == 'F':
         filename = input("Enter input file name: ")
         with open(filename, 'r') as f:
             n = int(f.readline().strip())
